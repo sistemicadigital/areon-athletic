@@ -124,6 +124,24 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Imágenes de apoyo */}
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-10">
+        <div className="w-48 h-32 overflow-hidden border border-[#00e5ff22] opacity-80 hover:opacity-100 transition">
+          <img
+            src="https://res.cloudinary.com/dtymrddlg/image/upload/q_auto,f_auto,w_400/banner_home_1_wbseu8"
+            alt="Areon Athletic productos"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="w-48 h-32 overflow-hidden border border-[#00e5ff22] opacity-80 hover:opacity-100 transition">
+          <img
+            src="https://res.cloudinary.com/dtymrddlg/image/upload/q_auto,f_auto,w_400/banner_home_2_goo2c6"
+            alt="Areon Athletic colección"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
     </section>

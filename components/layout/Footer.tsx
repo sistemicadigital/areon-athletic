@@ -95,7 +95,7 @@ export default function Footer() {
         <div className="border-t border-[#1f1f1f] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[#4b5563]">
             © {new Date().getFullYear()} Areon Athletic. Todos los derechos reservados.
-          </p>
+           · <a href="https://www.sistemicadigital.online/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00e5ff] transition">Diseñado por Sistémica Digital</a></p>
           <p className="text-xs text-[#4b5563]">
             Ubicados en <span className="text-[#00e5ff]">Pereira, Risaralda</span> · Eje Cafetero · Colombia
           </p>
