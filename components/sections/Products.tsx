@@ -91,7 +91,7 @@ function OrderModal({ product, onClose }: { product: Product; onClose: () => voi
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="bg-[#111] border border-[#1f1f1f] w-full max-w-md my-4">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-[#1f1f1f]">
@@ -201,6 +201,11 @@ function OrderModal({ product, onClose }: { product: Product; onClose: () => voi
             className="w-full flex items-center justify-center gap-2 py-3.5 font-bold text-sm tracking-[2px] uppercase bg-[#00e5ff] text-[#0a0a0a] hover:bg-white transition disabled:opacity-40 disabled:cursor-not-allowed">
             <Send size={15} />
             Confirmar Pedido por WhatsApp
+          </button>
+
+          <button onClick={onClose}
+            className="w-full py-3 text-sm font-bold tracking-[2px] uppercase border border-[#374151] text-[#6b7280] hover:border-[#6b7280] hover:text-[#f0f0f0] transition">
+            ✕ Cancelar
           </button>
         </div>
       </div>
