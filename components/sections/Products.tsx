@@ -10,7 +10,7 @@ const fmt = (n: number) => `$${n.toLocaleString('es-CO')}`;
 function ImageGallery({ images, name }: { images: string[]; name: string }) {
   const [idx, setIdx] = useState(0);
   return (
-    <div className="relative aspect-square bg-[#161616] overflow-hidden rounded-lg">
+    <div className="relative aspect-[4/3] bg-[#161616] overflow-hidden rounded-lg">
       <img src={images[idx]} alt={name} className="w-full h-full object-cover" />
       {images.length > 1 && (
         <>
@@ -228,7 +228,7 @@ function ProductCard({ product }: { product: Product }) {
         <div className="p-4">
           <p className="text-[10px] font-bold tracking-[2px] uppercase text-[#00e5ff] mb-1">{product.category}</p>
           <h3 className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-1 line-clamp-2">{product.name}</h3>
-          <p className="text-sm text-[#6b7280] leading-relaxed mb-3 line-clamp-2">{product.description}</p>
+          <p className="text-base text-[#9ca3af] leading-relaxed mb-3 line-clamp-2">{product.description}</p>
           {product.nota && <p className="text-[10px] text-[#00e5ff] mb-3">✨ {product.nota}</p>}
 
           <div className="flex items-center justify-between gap-2">

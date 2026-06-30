@@ -17,7 +17,7 @@ function BannerMid() {
       <img
         src={cld('banner_home_1_wbseu8')}
         alt="Areon Athletic — Colección"
-        className="w-full h-[280px] md:h-[420px] object-cover"
+        className="w-full h-auto max-h-[90vh] md:max-h-[500px] object-contain md:object-cover bg-[#0a0a0a]"
       />
     </section>
   );
@@ -29,7 +29,7 @@ function BannerBottom() {
       <img
         src={cld('banner_home_2_goo2c6')}
         alt="Areon Athletic — Productos"
-        className="w-full h-[280px] md:h-[420px] object-cover"
+        className="w-full h-auto max-h-[90vh] md:max-h-[500px] object-contain md:object-cover bg-[#0a0a0a]"
       />
     </section>
   );
