@@ -35,6 +35,7 @@ export interface Product {
   images: string[];
   description: string;
   nota?: string;
+  tallas?: string[];
 }
 
 export const PRODUCTS: Product[] = [
@@ -104,7 +105,8 @@ export const PRODUCTS: Product[] = [
       cld('camiseta_amarila_selecion_colombia_bordada_2_wvqhh6'),
       cld('camiseta_amarila_selecion_colombia_bordada_1_wrvhay'),
     ],
-    description: 'Camiseta bordada oficial de la Selección Colombia en color amarillo. Tallas: S, M, L, XL. Viene en empaque mundialista con banderín de obsequio.',
+    description: 'Camiseta bordada oficial de la Selección Colombia en color amarillo. Tallas disponibles: M, L, XL, XXL. Viene en empaque mundialista con banderín de obsequio.',
+    tallas: ['M', 'L', 'XL', 'XXL'],
     nota: 'Incluye banderín para carro o moto de regalo 🎁',
   },
   {
@@ -118,7 +120,8 @@ export const PRODUCTS: Product[] = [
       cld('camiseta_amarilla_encauchetada_selecion_colombia_2_zfortw'),
       cld('camiseta_amarilla_encauchetada_selecion_colombia_1_r4l3ad'),
     ],
-    description: 'Camiseta encauchetada de la Selección Colombia en color amarillo. Tallas: S, M, L, XL. Material premium resistente y cómodo.',
+    description: 'Camiseta encauchetada de la Selección Colombia en color amarillo. Tallas disponibles: M, L, XL. Material premium resistente y cómodo.',
+    tallas: ['M', 'L', 'XL'],
     nota: 'Incluye banderín para carro o moto de regalo 🎁',
   },
   {
@@ -132,7 +135,8 @@ export const PRODUCTS: Product[] = [
       cld('camiseta_azul_selecion_colombia_bordada_2_dsjt9x'),
       cld('camiseta_azul_selecion_colombia_bordada_1_khfxov'),
     ],
-    description: 'Camiseta bordada oficial de la Selección Colombia en color azul. Tallas: S, M, L, XL. La favorita de los hinchas.',
+    description: 'Camiseta bordada oficial de la Selección Colombia en color azul. Tallas disponibles: M, L, XL, XXL. La favorita de los hinchas.',
+    tallas: ['M', 'L', 'XL', 'XXL'],
     nota: 'Incluye banderín para carro o moto de regalo 🎁',
   },
 

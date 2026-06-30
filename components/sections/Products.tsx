@@ -10,7 +10,7 @@ const fmt = (n: number) => `$${n.toLocaleString('es-CO')}`;
 function ImageGallery({ images, name }: { images: string[]; name: string }) {
   const [idx, setIdx] = useState(0);
   return (
-    <div className="relative aspect-square bg-[#161616] overflow-hidden">
+    <div className="relative aspect-square bg-[#161616] overflow-hidden rounded-[40%]">
       <img src={images[idx]} alt={name} className="w-full h-full object-cover" />
       {images.length > 1 && (
         <>
@@ -107,8 +107,10 @@ function OrderModal({ product, onClose }: { product: Product; onClose: () => voi
               <label className="text-[10px] font-bold text-[#6b7280] uppercase tracking-widest block mb-1">Talla</label>
               <select value={form.talla} onChange={e => setForm({...form, talla: e.target.value})}
                 className="w-full bg-[#161616] border border-[#1f1f1f] text-[#f0f0f0] text-sm px-3 py-2 focus:border-[#00e5ff44] outline-none">
-                <option value="">Única</option>
-                <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+                <option value="">Única / No aplica</option>
+                {(product.tallas ?? ['M', 'L', 'XL', 'XXL']).map(t => (
+                  <option key={t}>{t}</option>
+                ))}
               </select>
             </div>
             <div>
