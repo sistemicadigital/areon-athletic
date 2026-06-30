@@ -38,9 +38,17 @@ function ImageGallery({ images, name }: { images: string[]; name: string }) {
 function OrderModal({ product, onClose }: { product: Product; onClose: () => void }) {
   const [form, setForm] = useState({ nombre: '', telefono: '', direccion: '', talla: '', cantidad: '1', notas: '' });
   const [sent, setSent] = useState(false);
+  const [upsell, setUpsell] = useState(false);
+
+  // Upsell según categoría
+  const upsellItem = ['Camisetas', 'Gorras', 'Mundialista'].includes(product.category)
+    ? { name: 'Banderín Selección Colombia', price: 5000, emoji: '🎌' }
+    : ['Pantalonetas', 'Bermudas'].includes(product.category)
+    ? { name: 'Medias Tobilleras x3', price: 5000, emoji: '🧦' }
+    : null;
 
   const qty = parseInt(form.cantidad) || 1;
-  const subtotal = product.price * qty;
+  const subtotal = product.price * qty + (upsell && upsellItem ? upsellItem.price : 0);
   const domicilio = subtotal >= DOMICILIO.minimo ? 0 : DOMICILIO.costo;
   const total = subtotal + domicilio;
 
@@ -49,6 +57,7 @@ function OrderModal({ product, onClose }: { product: Product; onClose: () => voi
       `🛒 *NUEVO PEDIDO — Areon Athletic*`,
       ``,
       `📦 *Producto:* ${product.name}`,
+      upsell && upsellItem ? `🎁 *Adicional:* ${upsellItem.emoji} ${upsellItem.name} (+${fmt(upsellItem.price)})` : '',
       `🔢 *Cantidad:* ${qty}`,
       form.talla ? `📏 *Talla:* ${form.talla}` : '',
       ``,
@@ -141,6 +150,29 @@ function OrderModal({ product, onClose }: { product: Product; onClose: () => voi
               onChange={e => setForm({...form, notas: e.target.value})} rows={2}
               className="w-full bg-[#161616] border border-[#1f1f1f] text-[#f0f0f0] text-sm px-3 py-2 focus:border-[#00e5ff44] outline-none placeholder-[#374151] resize-none" />
           </div>
+
+          {/* Upsell */}
+          {upsellItem && (
+            <div
+              onClick={() => setUpsell(!upsell)}
+              className={`flex items-center gap-3 p-3 border cursor-pointer transition ${
+                upsell ? 'border-[#00e5ff] bg-[#00e5ff0d]' : 'border-[#1f1f1f] hover:border-[#00e5ff33]'
+              }`}
+            >
+              <div className={`w-5 h-5 flex-shrink-0 border-2 flex items-center justify-center transition ${
+                upsell ? 'border-[#00e5ff] bg-[#00e5ff]' : 'border-[#374151]'
+              }`}>
+                {upsell && <span className="text-[#0a0a0a] text-xs font-black">✓</span>}
+              </div>
+              <div className="flex-1">
+                <p className="text-xs font-bold text-[#f0f0f0]">
+                  {upsellItem.emoji} ¿Le agregas {upsellItem.name}?
+                </p>
+                <p className="text-[10px] text-[#6b7280]">Por solo {fmt(upsellItem.price)} más — ¡aprovecha el envío!</p>
+              </div>
+              <span className="text-sm font-bebas tracking-wider text-[#00e5ff]">+{fmt(upsellItem.price)}</span>
+            </div>
+          )}
 
           {/* Resumen */}
           <div className="border border-[#1f1f1f] p-3 space-y-1.5 text-sm">
